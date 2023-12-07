@@ -1,6 +1,6 @@
 Name:		texlive-mathfont
-Version:	61719
-Release:	2
+Version:	68241
+Release:	1
 Summary:	Use TrueType and OpenType fonts in math mode
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/mathfont
