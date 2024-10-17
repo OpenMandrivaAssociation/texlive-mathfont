@@ -3,7 +3,7 @@ Version:	68241
 Release:	1
 Summary:	Use TrueType and OpenType fonts in math mode
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/mathfont
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/mathfont
 License:	lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.doc.r%{version}.tar.xz
