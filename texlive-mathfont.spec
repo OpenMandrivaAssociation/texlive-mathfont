@@ -1,43 +1,26 @@
-Name:		texlive-mathfont
-Version:	68241
-Release:	1
+%global tl_name mathfont
+%global tl_revision 77682
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	3.0a
+Release:	%{tl_revision}.1
 Summary:	Use TrueType and OpenType fonts in math mode
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/mathfont
+URL:		https://www.ctan.org/tex-archive/macros/unicodetex/latex/mathfont
 License:	lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/mathfont.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The mathfont package adapts unicode text fonts for math mode.
-The package allows the user to specify a default unicode font
-for different classes of math symbols, and it provides tools to
-change the font locally for math alphabet characters. When
-typesetting with LuaTeX, mathfont adds resizable delimiters,
-big operators, and a MathConstants table to text fonts.
+The mathfont package adapts unicode text fonts for math mode. The
+package allows the user to specify a default unicode font for different
+classes of math symbols, and it enables Unicode input in math mode. The
+package provides tools to change the font locally for math alphabet
+characters. When typesetting with LuaTeX, mathfont adds resizable
+delimiters, big operators, and a MathConstants table to text fonts.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/mathfont
-%{_texmfdistdir}/tex/latex/mathfont
-%doc %{_texmfdistdir}/doc/latex/mathfont
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
